@@ -48,9 +48,10 @@
           <a href="#" class="dropdown-item">
             Profile
           </a>
-          <a href="#" class="dropdown-item">
-            Logout
-          </a>
+           <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn btn-logout-admin">Logout</button>
+          </form>
         </div>
       </li>
     </ul>

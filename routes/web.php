@@ -20,7 +20,9 @@ Route::get('/', function () {
 
 
 //admin
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::prefix('web/admin')->middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
 
 Auth::routes();
 
