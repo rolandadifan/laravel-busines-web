@@ -32,4 +32,6 @@
 </div>
 <!-- ./wrapper -->
 
+@stack('prepend-script')
 @include('admin.include.script')
+@stack('addon-script')

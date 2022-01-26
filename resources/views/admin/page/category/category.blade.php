@@ -1,0 +1,70 @@
+@extends('admin.layout.admin')
+@section('content')
+<div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0 mb-5">Category</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Home</a></li>
+              <li class="breadcrumb-item active">Category</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+      <button type="button" class="btn btn-primary mb-3 pl-5 pr-5" data-toggle="modal" data-target="#exampleModal">
+         create
+      </button>
+      @include('admin.page.category.create')
+      @include('admin.include.flashmessage')
+
+      <table id="table-category" class="table-responsive-md display" width="100%">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                      @foreach($data as $ctg)
+                      <tr>
+                          <td>{{  $loop->iteration  }}</td>
+                          <td>{{ $ctg->name }}</td>
+                          <td>
+                              <a href="{{ route('category.show', $ctg->id) }}" class="btn btn-warning btn-sm">
+                                  <i class="fas fa-fw fa-edit"></i>
+                              </a>
+                              <form action="{{ route('category.destroy', $ctg->id) }}" class="d-inline" method="POST">
+                                  @method('delete')
+                                  @csrf
+                                  <button type="submit" class="btn btn-danger btn-sm">
+                                      <i class="fas fa-fw fa-trash"></i>
+                                  </button>
+                              </form>
+                          </td>
+                      </tr>
+                      @endforeach
+                    </tbody>
+                </table>
+      </div>
+    </section>
+@endsection
+
+@push('addon-script')
+<script>
+// data table
+$('#table-category').DataTable({
+    responsive: true
+});
+
+</script>
+@endpush

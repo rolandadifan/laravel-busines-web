@@ -31,10 +31,34 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('category.index')}}" class="nav-link">
+              <i class="nav-icon fas fa-clipboard-list"></i>
+              <p>
+                Category
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="pages/widgets.html" class="nav-link">
+              <i class="nav-icon fas fa-building"></i>
+              <p>
+                Projects
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('news.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-newspaper"></i>
+              <p>
+                News
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-chart-pie"></i>
               <p>
-                Project
+                Menu
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -65,7 +89,7 @@
               </li>
             </ul>
           </li>
-          <li class="nav-header">EXAMPLES</li>
+          <li class="nav-header">Setting</li>
           <li class="nav-item">
             <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
