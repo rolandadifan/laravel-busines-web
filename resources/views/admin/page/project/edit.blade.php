@@ -89,7 +89,7 @@
                 </div>
               </div>
               <div class="col-md-4">
-                <button type="submit" class="btn btn-primary" style="margin-top: 30px">Add</button>
+                <button type="submit" class="btn btn-primary" >Add</button>
               </div>
             </div>
         </form>
@@ -97,7 +97,7 @@
           <div class="row">
             @forelse($project->gallery as $gallerys)
             <div class="col-md-4">
-                <img src="{{ Storage::url($gallerys->image) ?? '' }}" width="300" height="200" alt="">
+                <img src="{{ Storage::url($gallerys->image) ?? '' }}" width="300" height="200" class="mb-2" alt="">
                 <form action="{{ route('gallery.destroy', $gallerys->id) }}" method="post">
                   @method('delete')
                   @csrf

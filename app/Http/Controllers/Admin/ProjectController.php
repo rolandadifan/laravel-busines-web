@@ -199,9 +199,9 @@ class ProjectController extends Controller
 
     public function addImage(Request $request)
     {
-        $product = $request->product_id;
-        $check = ProductGallery::where('project_id', $product)->get();
-        if(count($check) > 6){
+        $product = $request->project_id;
+        $check = ProductGallery::where('project_id', $product)->count();
+        if($check >= 6){
             return redirect()->back()->with('error', 'Image maksimum upload 6');
         }
         foreach ($request->file('image') as $images) {
