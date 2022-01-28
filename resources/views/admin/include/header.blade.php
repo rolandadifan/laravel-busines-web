@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE | Dashboard</title>
+  <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
+  <title>Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -29,4 +30,11 @@
 
   <!-- data table -->
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
+
+  <!-- cleditor -->
+  <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+
+  <!-- videoloader -->
+  <link href="https://vjs.zencdn.net/7.17.0/video-js.css" rel="stylesheet" />
+  
 </head>
