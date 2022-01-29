@@ -61,7 +61,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/charts/chartjs.html" class="nav-link">
+                <a href="{{ route('contact.social') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Social Media</p>
                 </a>

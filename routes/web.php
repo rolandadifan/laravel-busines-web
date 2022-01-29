@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\AdminProfileController;
+use App\Http\Controllers\Admin\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +56,10 @@ Route::prefix('web/admin')->middleware(['auth'])->group(function(){
     Route::put('/project/{id}', [ProjectController::class, 'update'])->name('project.update');
     Route::delete('/project/{id}', [ProjectController::class, 'destroy'])->name('project.destroy');
     Route::delete('/project/gallery/{id}', [ProjectController::class, 'destroyGallery'])->name('gallery.destroy');
+
+    //contact
+    Route::get('/soacial-media', [ContactController::class, 'social'])->name('contact.social');
+    Route::put('/soacial-media', [ContactController::class, 'update_social'])->name('contact.social.update');
 });
 
 Auth::routes(['register' => false]);
