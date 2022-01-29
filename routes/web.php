@@ -7,6 +7,12 @@ use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\AdminProfileController;
 use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\EmployeeController;
+use App\Http\Controllers\Admin\MenuController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ProjectsController;
+use App\Http\Controllers\NewController;
+use App\Http\Controllers\ContactsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,9 +66,38 @@ Route::prefix('web/admin')->middleware(['auth'])->group(function(){
     //contact
     Route::get('/soacial-media', [ContactController::class, 'social'])->name('contact.social');
     Route::put('/soacial-media', [ContactController::class, 'update_social'])->name('contact.social.update');
+    Route::get('/conatact-info', [ContactController::class, 'contact'])->name('contact.index');
+    Route::put('/conatact-info', [ContactController::class, 'update_contact'])->name('contact.update');
+
+    //employee
+    Route::get('/employee', [EmployeeController::class, 'index'])->name('employee.index');
+    Route::post('/employe', [EmployeeController::class, 'store'])->name('employee.store');
+    Route::get('/employe/{id}', [EmployeeController::class, 'show'])->name('employee.edit');
+    Route::put('/employe/{id}', [EmployeeController::class, 'update'])->name('employee.update');
+    Route::delete('/employe/{id}', [EmployeeController::class, 'destroy'])->name('employee.destroy');
+
+    //menu
+    Route::get('/about', [MenuController::class, 'index'])->name('about.index');
+    Route::put('/about', [MenuController::class, 'update'])->name('about.update');
 });
 
 Auth::routes(['register' => false]);
 
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//about
+Route::get('/tentang-kami', [AboutController::class, 'about'])->name('client.about');
+
+//project
+Route::get('/project', [ProjectsController::class, 'project'])->name('client.project');
+Route::get('/project-detail', [ProjectsController::class, 'detail'])->name('client.detail');
+
+//news
+Route::get('/berita', [NewController::class, 'news'])->name('client.news');
+Route::get('/berita-detail', [NewController::class, 'detail'])->name('client.news.detail');
+
+//contact
+Route::get('/hubungi-kami', [ContactsController::class, 'contact'])->name('client.contact');
+

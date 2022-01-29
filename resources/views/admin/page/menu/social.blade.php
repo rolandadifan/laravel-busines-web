@@ -20,7 +20,6 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <a href="{{ route('news.index') }}" class="btn btn-secondary btn-sm mb-5"><i class="fas fa-arrow-left"></i> Back</a>
         @include('admin.include.flashmessage')
         <form action="{{ route('contact.social.update') }}" method="POST" enctype='multipart/form-data'>
             @method('put')

@@ -67,19 +67,19 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/flot.html" class="nav-link">
+                <a href="{{ route('about.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>About</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/inline.html" class="nav-link">
+                <a href="{{ route('employee.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Employee</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/charts/uplot.html" class="nav-link">
+                <a href="{{ route('contact.index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Contact</p>
                 </a>
