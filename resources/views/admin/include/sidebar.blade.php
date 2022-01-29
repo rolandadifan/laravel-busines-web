@@ -63,37 +63,37 @@
               <li class="nav-item">
                 <a href="pages/charts/chartjs.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>List</p>
+                  <p>Social Media</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/flot.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Create</p>
+                  <p>About</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/inline.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Inline</p>
+                  <p>Employee</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="pages/charts/uplot.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>uPlot</p>
+                  <p>Contact</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-header">Setting</li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            {{-- <a href="pages/widgets.html" class="nav-link">
               <i class="nav-icon fas fa-cog"></i>
               <p>
                 Logout
               </p>
-            </a>
+            </a> --}}
           </li>
           
         </ul>

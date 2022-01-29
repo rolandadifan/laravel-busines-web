@@ -1,5 +1,5 @@
 <footer class="main-footer">
-    <strong>Copyright &copy; 2022 Prima Inovasi Media</strong>
+    <strong>Copyright &copy; {{ now()->year }} Prima Inovasi Media</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 1.0.0

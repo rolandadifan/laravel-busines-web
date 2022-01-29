@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\AdminProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,11 @@ Route::get('/', function () {
 
 //admin
 Route::prefix('web/admin')->middleware(['auth'])->group(function(){
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    //profile
+    Route::get('/profile', [AdminProfileController::class, 'index'])->name('admin.profile');
+    Route::put('/profile', [AdminProfileController::class, 'update'])->name('admin.update');
 
     //category
     Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
@@ -52,7 +57,7 @@ Route::prefix('web/admin')->middleware(['auth'])->group(function(){
     Route::delete('/project/gallery/{id}', [ProjectController::class, 'destroyGallery'])->name('gallery.destroy');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
