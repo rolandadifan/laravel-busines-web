@@ -202,7 +202,7 @@
             
         </ul>
         <div class="container ml-3 mt-5 mb-5">
-            <a href="/product.html">
+            <a href="{{ route('client.project') }}">
                 <h5 class="news-to-lainya">Lainnya...</h5>
             </a>
         </div>
@@ -214,7 +214,7 @@
         <div class="d-flex">
             <div class="d-flex flex-column ">
                 <h1 class="heading-1">Tentang Kami</h1>
-                <p class="para">Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto magni, ea, consectetur tempora pariatur ad natus accusantium commodi laborum dicta reiciendis, quidem accusamus voluptates animi nemo incidunt corporis ducimus culpa perferendis facere delectus? Neque corrupti velit odio, assumenda tempore porro illum rem earum. Molestiae maxime saepe ipsam illo optio ducimus... <a href="/about.html"><span>Read more</span></a></p>
+                <p class="para">{!! mb_strimwidth($about->value, 0, 381, "...") ?? '' !!}<a href="{{ url('/tentang-kami') }}"><span>Read more</span></a></p>
             </div>
         </div>
     </div>
@@ -294,8 +294,8 @@
             </div>
             <div class="col-md-5">
                 <h1 class="text-white heading-1">Kenali Kami</h1>
-                <p class="para-1">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugiat, suscipit. Similique itaque cumque laboriosam deserunt corporis labore enim voluptates rem!</p>
-                <a href="/portofolio.html">More...</a>
+                <p class="para-1">{{ $knowus->value }}</p>
+                {{-- <a href="/portofolio.html">More...</a> --}}
             </div>
         </div>
     </div>
@@ -306,59 +306,27 @@
         <h1 class="heading-5 mb-1">Info & Berita</h1>
         <div class="main-content-news">
             <div class="row">
-                <div class="col-md-3 col-6">
+                @forelse ($news as $nw)
+                <div class="@if (count($news) === 1) col-md-12 @elseif(count($news) === 2) col-md-6 elseif() @elseif(count($news) === 3) col-md-4 @elseif(count($news) === 4) col-md-3  @endIf col-6">
                     <section class="bg">
                         <div class="blog-card">
-                            <img class="blog-img" src="asset/img/berita.jpg" />
+                            <img class="blog-img" src="{{ Storage::url($nw->image) }}" alt="image" />
                             <div class="text-overlay">
-                                <h2 class="news-title">Essential Atom Packages</h2>
-                                <p>05-01-2022</p>
-                                <p class="news-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales posuere felis non efficitur. Mauris mollis elit urna, id tempus... &nbsp;&nbsp;<a href="#" class="read-more">Read More</a></p>
+                                <h2 class="news-title">{{ mb_strimwidth($nw->name, 0, 30, "...") ?? '' }}</h2>
+                                <p>{{ \Carbon\Carbon::parse($nw->created_at)->format('j F, Y') }}</p>
+                                <p class="news-desc">{!! mb_strimwidth($nw->description, 0, 135, "...") ?? '' !!} &nbsp;&nbsp;<a href="{{ route('client.news.detail', $nw->slug) }}" class="read-more">Read More</a></p>
                             </div>
                         </div>
                     </section>
                 </div>
-                <div class="col-md-3 col-6">
-                    <section class="bg">
-                        <div class="blog-card">
-                            <img class="blog-img" src="asset/img/berita.jpg" />
-                            <div class="text-overlay">
-                                <h2 class="news-title">Essential Atom Packages</h2>
-                                <p>05-01-2022</p>
-                                <p class="news-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales posuere felis non efficitur. Mauris mollis elit urna, id tempus... &nbsp;&nbsp;<a href="#" class="read-more">Read More</a></p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-md-3 col-6">
-                    <section class="bg">
-                        <div class="blog-card">
-                            <img class="blog-img" src="asset/img/berita.jpg" />
-                            <div class="text-overlay">
-                                <h2 class="news-title">Essential Atom Packages</h2>
-                                <p>05-01-2022</p>
-                                <p class="news-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales posuere felis non efficitur. Mauris mollis elit urna, id tempus... &nbsp;&nbsp;<a href="#" class="read-more">Read More</a></p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-                <div class="col-md-3 col-6">
-                    <section class="bg">
-                        <div class="blog-card">
-                            <img class="blog-img" src="asset/img/berita.jpg" />
-                            <div class="text-overlay">
-                                <h2 class="news-title">Essential Atom Packages</h2>
-                                <p>05-01-2022</p>
-                                <p class="news-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sodales posuere felis non efficitur. Mauris mollis elit urna, id tempus... &nbsp;&nbsp;<a href="#" class="read-more">Read More</a></p>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                @empty
+                    <h3 class="text-center">Belum ada data</h3>
+                @endforelse
             </div>
         </div>
     </div>
     <div class="container mt-5">
-        <a href="/berita.html">
+        <a href="{{ route('client.news') }}">
             <h5 class="news-to-lainya">Lainnya...</h5>
         </a>
     </div>
@@ -376,7 +344,7 @@
                     <!-- <p>Hubungi Kami</p> -->
                 </div>
                 <div class="col-md-3 col-12">
-                    <button class="btn primary__button">Hubungi Kami</button>
+                    <a  href="{{ url('/hubungi-kami') }}" class="btn primary__button" >Hubungi Kami</a>
                 </div>
             </div>
         </div>

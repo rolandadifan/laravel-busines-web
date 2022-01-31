@@ -13,6 +13,7 @@ use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\NewController;
 use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,9 +26,9 @@ use App\Http\Controllers\ContactsController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 
 //admin
@@ -79,6 +80,7 @@ Route::prefix('web/admin')->middleware(['auth'])->group(function(){
     //menu
     Route::get('/about', [MenuController::class, 'index'])->name('about.index');
     Route::put('/about', [MenuController::class, 'update'])->name('about.update');
+    Route::put('/about/update-image', [MenuController::class, 'update_image'])->name('about.update.image');
 });
 
 Auth::routes(['register' => false]);
@@ -96,8 +98,11 @@ Route::get('/project-detail', [ProjectsController::class, 'detail'])->name('clie
 
 //news
 Route::get('/berita', [NewController::class, 'news'])->name('client.news');
-Route::get('/berita-detail', [NewController::class, 'detail'])->name('client.news.detail');
+Route::get('/berita/{slug}', [NewController::class, 'detail'])->name('client.news.detail');
 
 //contact
 Route::get('/hubungi-kami', [ContactsController::class, 'contact'])->name('client.contact');
+
+//home
+Route::get('/', [HomeController::class, 'index']);
 

@@ -20,42 +20,25 @@
 <div class="content-news">
     <div class="container">
         <h1 class="news-content-title mb-5">Info Dan Berita</h1>
+        @forelse ($news as $item)
         <div class="card mb-3">
             <div class="row">
                 <div class="col-md-5">
-                    <img src="/asset/img/beritA.jpg" alt="" class="img-news">
+                    <img src="{{ Storage::url($item->image) }}" alt="" class="img-news">
                 </div>
                 <div class="col-md-7">
-                    <h3 class="news-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, similique.</h3>
-                    <p class="news-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quos dolorem similique, tempore corrupti quasi officia quo, dolor, eum quis natus sunt ab? Voluptatum aut ab dolore harum illum quisquam. <span><a href="{{ route('client.news.detail') }}">Read More...</a></span></p>
-                    <p class="news-date">05-01-2022</p>
+                    <h3 class="news-title">{{ $item->name ?? '' }}</h3>
+                    <p class="news-detail">{!! mb_strimwidth($item->description, 0, 197, "...") !!} <span><a href="{{ route('client.news.detail', $item->slug) }}">Read More</a></span></p>
+                    <p class="news-date">{{ \Carbon\Carbon::parse($item->created_at)->format('j F, Y') }}</p>
                 </div>
             </div>
         </div>
-        <div class="card mb-3">
-            <div class="row">
-                <div class="col-md-5">
-                    <img src="/asset/img/beritA.jpg" alt="" class="img-news">
-                </div>
-                <div class="col-md-7">
-                    <h3 class="news-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, similique.</h3>
-                    <p class="news-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quos dolorem similique, tempore corrupti quasi officia quo, dolor, eum quis natus sunt ab? Voluptatum aut ab dolore harum illum quisquam. <span><a href="#">Read More...</a></span></p>
-                    <p class="news-date">05-01-2022</p>
-                </div>
-            </div>
+        <div class="justify-content-center">
+            {{ $news->links('vendor.pagination.bootstrap-4') }}
         </div>
-        <div class="card mb-3">
-            <div class="row">
-                <div class="col-md-5">
-                    <img src="/asset/img/beritA.jpg" alt="" class="img-news">
-                </div>
-                <div class="col-md-7">
-                    <h3 class="news-title">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, similique.</h3>
-                    <p class="news-detail">Lorem ipsum dolor sit amet consectetur adipisicing elit. Et quos dolorem similique, tempore corrupti quasi officia quo, dolor, eum quis natus sunt ab? Voluptatum aut ab dolore harum illum quisquam. <span><a href="#">Read More...</a></span></p>
-                    <p class="news-date">05-01-2022</p>
-                </div>
-            </div>
-        </div>
+        @empty
+            <h3 class="text-center">Belum Ada Data</h3>
+        @endforelse
     </div>
 </div>
 @endsection

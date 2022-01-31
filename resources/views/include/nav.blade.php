@@ -1,6 +1,6 @@
 <div class="navbar fixed-top navbar-fixed-top navbar-expand-lg navbar-light">
-    <a href="#" class="navbar-brand ml-3">
-        <img src="/asset/img/final logo transparant.png"  alt="" class="img-navbar">
+    <a href="{{ url('/') }}" class="navbar-brand ml-3">
+        <img src="{{ asset('asset/img/final logo transparant.png') }}"  alt="" class="img-navbar">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle Navigation">
         <span class="navbar-toggler-icon"></span>
@@ -18,7 +18,7 @@
             <li class="nav-item {{(request()->is('project')) || (request()->is('project-detail'))  ? 'active' : ''}}">
                 <a href="{{ route('client.project') }}" class="nav-link">Project</a>
             </li>
-            <li class="nav-item {{(request()->is('berita')) || (request()->is('berita-detail')) ? 'active' : ''}}">
+            <li class="nav-item {{(request()->is('berita')) ? 'active' : ''}}">
                 <a href="{{ route('client.news') }}" class="nav-link">Berita</a>
             </li>
             <li class="nav-item {{(request()->is('hubungi-kami')) ? 'active' : ''}}">

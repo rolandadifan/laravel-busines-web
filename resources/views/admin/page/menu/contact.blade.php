@@ -25,20 +25,24 @@
             @method('put')
             @csrf
             <div class="form-group">
+              <label for="name">Email</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $email->value }}"   name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Phone</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $phone->value }}"   name="phone" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Fax</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $fax->value }}"  name="fax" required>
+            </div>
+            <div class="form-group">
+              <label for="name">Address</label>
+              <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $address->value }}"  name="address" required>
+            </div>
+            <div class="form-group">
                 <label for="name">Location</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $location->value }}"  name="location" required>
-            </div>
-            <div class="form-group">
-                <label for="name">Email</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $email->value }}"   name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="name">Phone</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $phone->value }}"   name="phone" required>
-            </div>
-            <div class="form-group">
-                <label for="name">Fax</label>
-                <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $fax->value }}"  name="fax" required>
+                <textarea type="text" class="form-control" id="name" aria-describedby="name" name="location" required>{{ $location->value }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary mb-5">Update</button>
             </div>

@@ -72,11 +72,13 @@ class ContactController extends Controller
         $email = Contact::where('key', 'email')->first();
         $phone = Contact::where('key', 'phone')->first();
         $fax = Contact::where('key', 'fax')->first();
+        $address = Contact::where('key', 'address')->first();
         return  view('admin.page.menu.contact')->with([
             'location' => $location,
             'email' => $email,
             'phone' => $phone,
-            'fax' => $fax
+            'fax' => $fax,
+            'address' => $address
         ]);
     }
 
@@ -88,11 +90,14 @@ class ContactController extends Controller
             $email = $request->email;
             $phone = $request->phone;
             $fax = $request->fax;
+            $address = $request->address;
     
             $location_update = Contact::where('key', 'location')->first();
             $email_update = Contact::where('key', 'email')->first();
             $phone_update = Contact::where('key', 'phone')->first();
             $fax_update = Contact::where('key', 'fax')->first();
+            $address_update = Contact::where('key', 'address')->first();
+
     
             $location_update->update([
                 'value' => $location
@@ -113,6 +118,10 @@ class ContactController extends Controller
                 'value' => $fax
             ]);
             $fax_update->save();
+            $address_update->update([
+                'value' => $address
+            ]);
+            $address_update->save();
     
             return redirect()->back()->with('status', 'Successfully update contact');
         } catch (\Throwable $th) {

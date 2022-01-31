@@ -40,8 +40,8 @@
                         <div class="content-tentang-kami">
                             <div class="row">
                                 <div class="d-flex">
-                                    <img src="/asset/img/pic-porto.jpg" class="pic-about" alt="pic-porto">
-                                    <p class="para-about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, ratione ad libero aliquam nam assumenda consectetur ex neque eum accusamus totam vero. Explicabo sapiente optio reprehenderit rem ratione ut sit repellendus tempora, voluptatem perferendis repudiandae unde hic. Saepe minima voluptate excepturi vero! Dicta id deleniti itaque quos vitae laboriosam eum tempore numquam expedita voluptatum! Recusandae exercitationem temporibus laudantium. Asperiores, laboriosam. Iure nostrum ut sunt est, officia aperiam cupiditate repudiandae, ratione error dicta exercitationem blanditiis laudantium? Odio deserunt facere debitis saepe vitae. Deserunt quae velit incidunt asperiores autem illum tempore blanditiis eos. Tenetur repellendus voluptates voluptate ut, magni officia a minus?</p>
+                                    <img src="{{ $pic->value === 'no pic' ? '/asset/img/pic-porto.jpg' : Storage::url($pic->value) }}" class="pic-about" alt="pic-porto">
+                                    <p class="para-about">{{ $about->value }}</p>
                                 </div>
                             </div>
                         </div>
@@ -49,11 +49,11 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <h1 class="vm-title">Visi</h1>
-                                    <p class="vm-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cum neque dicta eveniet sint dolorum aspernatur pariatur enim libero veritatis. Alias similique suscipit hic consequuntur exercitationem. Eaque quisquam nemo tempora pariatur nesciunt temporibus cupiditate veniam amet tempore vel! Voluptatem, excepturi totam.</p>
+                                    <p class="vm-content">{{ $visi->value }}</p>
                                 </div>
                                 <div class="col-md-6">
                                     <h1 class="vm-title">Misi</h1>
-                                    <p class="vm-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium laborum quis commodi iste, vitae quibusdam architecto deserunt perferendis reprehenderit quaerat possimus hic est a, itaque doloremque eos. Obcaecati, accusantium recusandae culpa, non, saepe dolores aperiam repudiandae labore consequatur odit ipsa?</p>
+                                    <p class="vm-content">{{ $misi->value }}</p>
                                 </div>
                             </div>
                         </div>
@@ -122,26 +122,30 @@
                         </div>
                     <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                         <div class="row">
+                            @forelse ($employes as $data)
                             <div class="col-md-4">
                                 <div class="card card-profile" style="width: 15rem;">
                                     <p class="text-center">
-                                        <img src="asset/img/img1.png" class="card-img-top team-pic mt-2" alt="...">
+                                        <img src="{{ Storage::url($data->avatar) }}" class="card-img-top team-pic mt-2" alt="...">
                                         <div class="card-body">
-                                            <h3 class="text-center">Samuel Jackson</h3>
-                                            <h5 class="card-title text-center ps-title">Direktur</h5>
-                                            <!-- <div class="d-flex mt-2">
+                                            <h3 class="text-center">{{ $data->name }}</h3>
+                                            <h5 class="card-title text-center ps-title">{{ $data->role }}</h5>
+                                            <div class="d-flex mt-2 justify-content-center">
                                                 <i class="fas fa-phone mr-2"></i>
-                                                <p class="about-nohp">+629999999999</p>
+                                                <p class="about-nohp">{{ $data->phone }}</p>
                                             </div>
-                                            <div class="d-flex">
+                                            <div class="d-flex justify-content-center">
                                                 <i class="fas fa-envelope mr-2"></i>
-                                                <p class="about-email">company@company.com</p>
-                                            </div> -->
+                                                <p class="about-email">{{ $data->email }}</p>
+                                            </div>
                                         </div>
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            @empty
+                                <h5 class="text-center">belum ada data</h5>
+                            @endforelse
+                            {{-- <div class="col-md-4">
                                 <div class="card card-profile" style="width: 15rem;">
                                     <p class="text-center">
                                         <img src="asset/img/img2.png" class="card-img-top team-pic mt-2" alt="...">
@@ -162,7 +166,7 @@
                                         </div>
                                     </p>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                     </div>
                     </div>

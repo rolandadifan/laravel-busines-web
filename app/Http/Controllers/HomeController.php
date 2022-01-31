@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Menu;
+use App\Models\News;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $about = Menu::where('key', 'about')->first();
+        $knowus = Menu::where('key', 'knowus')->first();
+        $news = News::orderBy('created_at', 'DESC')->limit(4)->get();
+
+
+        return view('welcome', [
+            'about' => $about,
+            'knowus' => $knowus,
+            'news' => $news
+        ]);
     }
 }
