@@ -18,101 +18,6 @@
 </div>
 
 <div class="prodoct-content">
-    
-    <!-- <div class="category-section">
-        <div class="container">
-            <h5 class="pc-title-content">Recomended Kategori</h5>
-            <div class="row justify-content-center text-center">
-                <div id="owl-category" class="owl-carousel owl-theme">
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <div class="card-custome">
-                            <div class="card-title-custome">
-                                <p class="m-2">Mobil</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-        </div>
-    </div> -->
 
     <div class="product-list mt-5">
         <div class="container">
@@ -125,7 +30,7 @@
                             <form action="{{ url('/project/category/search') }}" method="get">
                                 <input type="hidden" name="id" value="{{ $ctg->id }}">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                                  <button type="submit" style="border: none; background:none" class="ctg-all">{{ $ctg->name }}</button>
+                                    <button type="submit" class="ctg-all" style="border: none; background: none;">{{ $ctg->name }}</button>
                                   <span class="badge bg-primary rounded-pill px-2 py-1">{{ count($ctg->project) }}</span>
                                 </li>
                             </form>
@@ -198,7 +103,15 @@
                     </div>
                    
                 </div>
+
                 <div class="col-md-8">
+                    <div class="mb-2 row">
+                        <div class="col-md-6"> <h3>Total Data Pencarian {{ count($projects) }}</h3></div>
+                        <div class="col-md-6">
+                            <button class="btn btn-primary btn-md" onclick="javascript:location.href='{{ route('client.project') }}'"
+                            >Reset</button>
+                        </div>
+                    </div>
                     <div class="filter-section row">
                         <div class="col-sm-11">
                             <form action="{{ route('client.cari') }}" method="get">
@@ -211,21 +124,20 @@
                             </form>
                            </div>
                            <div class="col-sm-1" style="margin-left: -20px">
-                               <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-filter fa-1x"></i></button>
-                                  <div class="dropdown-menu dropdown-menu-right" >
-                                     <ul class="category_filters" >
-                                      <li >
-                                       <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project') }}'" >Terbaru</label>
-                                      </li>
-                                      <li >
-                                       <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project.latest') }}'">Terlama</label>
-                                      </li>
-                                     </ul>
-                                </div>
-                           </div>
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-filter fa-1x"></i></button>
+                               <div class="dropdown-menu dropdown-menu-right" >
+                                  <ul class="category_filters" >
+                                   <li >
+                                    <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project') }}'" >Terbaru</label>
+                                   </li>
+                                   <li >
+                                    <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project.latest') }}'">Terlama</label>
+                                   </li>
+                                  </ul>
+                             </div>
+                        </div>
                     </div>
 
-                    
                     <div class="row">
                         @forelse ($projects as $project)
                         <div class="col-md-4">
@@ -242,9 +154,6 @@
                             <h3 class="text-center">Data belum ada</h3>
                         @endforelse
                 </div>
-                <div class="mt-5">
-                    {{ $projects->links('vendor.pagination.bootstrap-4') }}
-                </div>
             </div>
         </div>
     </div>
@@ -252,4 +161,7 @@
 @endsection
 
 @push('addon-script')
+<script>
+
+</script>
 @endpush

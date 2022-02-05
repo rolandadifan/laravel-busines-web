@@ -1138,6 +1138,10 @@ footer i{
     margin-top: 40px;
 }
 
+.ctg-all:hover{
+    color: blue;
+}
+
 .card-product-list{
     width: 230px !important;
     height: 280px !important;

@@ -26,9 +26,26 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+//home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+//about
+Route::get('/tentang-kami', [AboutController::class, 'about'])->name('client.about');
+
+//project
+Route::get('/project', [ProjectsController::class, 'project'])->name('client.project');
+Route::get('/projects', [ProjectsController::class, 'terlama'])->name('client.project.latest');
+Route::get('/project/{slug}', [ProjectsController::class, 'detail'])->name('client.detail');
+Route::get('/project/category/search', [ProjectsController::class, 'category']);
+Route::get('/cari', [ProjectsController::class, 'cari'])->name('client.cari');
+
+//news
+Route::get('/berita', [NewController::class, 'news'])->name('client.news');
+Route::get('/berita/{slug}', [NewController::class, 'detail'])->name('client.news.detail');
+
+//contact
+Route::get('/hubungi-kami', [ContactsController::class, 'contact'])->name('client.contact');
+
 
 
 //admin
@@ -89,20 +106,7 @@ Auth::routes(['register' => false]);
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-//about
-Route::get('/tentang-kami', [AboutController::class, 'about'])->name('client.about');
 
-//project
-Route::get('/project', [ProjectsController::class, 'project'])->name('client.project');
-Route::get('/project-detail', [ProjectsController::class, 'detail'])->name('client.detail');
 
-//news
-Route::get('/berita', [NewController::class, 'news'])->name('client.news');
-Route::get('/berita/{slug}', [NewController::class, 'detail'])->name('client.news.detail');
 
-//contact
-Route::get('/hubungi-kami', [ContactsController::class, 'contact'])->name('client.contact');
-
-//home
-Route::get('/', [HomeController::class, 'index']);
 

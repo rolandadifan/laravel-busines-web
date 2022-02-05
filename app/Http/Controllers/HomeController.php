@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\News;
+use App\Models\Project;
 
 class HomeController extends Controller
 {
@@ -13,10 +14,6 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -29,12 +26,14 @@ class HomeController extends Controller
         $about = Menu::where('key', 'about')->first();
         $knowus = Menu::where('key', 'knowus')->first();
         $news = News::orderBy('created_at', 'DESC')->limit(4)->get();
+        $projects = Project::with(['gallery'])->orderBy('created_at', 'DESC')->limit(5)->get();
 
 
         return view('welcome', [
             'about' => $about,
             'knowus' => $knowus,
-            'news' => $news
+            'news' => $news,
+            'projects' => $projects
         ]);
     }
 }

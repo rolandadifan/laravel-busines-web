@@ -8,194 +8,58 @@
 </div>
 
 
-<!-- <div class="category-section">
-    <div class="container text-center">
-        <div class="row justify-content-center text-center">
-            <div id="owl-category" class="owl-carousel owl-theme">
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="card-custome">
-                        <div class="card-title-custome">
-                            <p class="m-2">Mobil</p>
-                        </div>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </div>
-</div> -->
+
 
 
 <div class="section-1">
     <div class="container">
         <h1 class="heading-1 text-center">Project Terbaru Kami</h1>
-        <!-- <div class="row">
-            <div class="col-md-5">
-                <div class="triangles">
-                    <div class="triangle"></div>
-                    <div class="triangle"></div>
-                    <div class="triangle"></div>
-                    <div class="triangle"></div>
-                    <h3 class="site-title" style="margin-top: 180px;">What a Fantabulous Title!</h3>
-                    <div class="d-flex flex-row btn-banner">
-                        <input type="button" onclick="movetoProduct()" value="Lihat lainnya" class="btn site-btn1 px-4 py-3 mr-4 btn-dark">
-                        <input type="button" onclick="movetoAbout()" value="Tentang Kami" class="btn site-btn2 px-4 py-3 mr-4 btn-light">
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-7">
-                <div class="box"></div>
-                <div class="new-project">
-                    <img src="asset/img/mockup2.jpg" class="new-img-project" alt="">
-                </div>
-                <!-- <ul class="card-wrapper">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <li class="card-home">
-                                <img src='asset/img/mockup2.jpg' alt=''>
-                                <h3><a href="">What a Fantabulous Title!</a></h3>
-                                <p>Lorem ipsum sit dolor amit</p>
-                              </li>
-                        </div>
-                        <div class="col-md-6">
-                            <li class="card-home">
-                                <img src='https://images.unsplash.com/photo-1611083360739-bdad6e0eb1fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
-                                <h3><a href="">What a Fantabulous Title!</a></h3>
-                                <p>Lorem ipsum sit dolor amit</p>
-                              </li>
-                        </div>
-                        <div class="col-md-6">
-                            <li class="card-home">
-                                <img src='asset/img/mockup2.jpg' alt=''>
-                                <h3><a href="">What a Fantabulous Title!</a></h3>
-                                <p>Lorem ipsum sit dolor amit</p>
-                              </li>
-                        </div>
-                        <div class="col-md-6">
-                            <li class="card-home">
-                                <img src='https://images.unsplash.com/photo-1611083360739-bdad6e0eb1fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
-                                <h3><a href="">What a Fantabulous Title!</a></h3>
-                                <p>Lorem ipsum sit dolor amit</p>
-                              </li>
-                        </div>
-                    </div>
-                </ul> -->
-            <!-- </div>
-        </div> --> 
         <ul class="card-wrapper">
             <div class="row">
+                @isset($projects[0])
                 <div class="col-md-6">
                     <li class="card-home">
-                        <img src='asset/img/mockup2.jpg' alt=''>
-                        <h3><a href="">A Super Wonderful Headline</a></h3>
-                        <p>Lorem ipsum sit dolor amit</p>
+                        <img src='{{ Storage::url($projects[0]->gallery[0]->image) }}' alt=''>
+                        <h3 class="text-center"><a href="{{ route('client.detail', $projects[0]->slug) }}">{{ $projects[0]->title }}</a></h3>
                       </li>
-                </div>
+                </div>    
+                @endisset
+
+                @isset($projects[1])
                 <div class="col-md-6">
                     <li class="card-home">
-                        <img src='https://images.unsplash.com/photo-1611083360739-bdad6e0eb1fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
-                        <h3><a href="">What a Fantabulous Title!</a></h3>
-                        <p>Lorem ipsum sit dolor amit</p>
+                        <img src='{{ Storage::url($projects[1]->gallery[0]->image) }}' alt=''>
+                        <h3 class="text-center"><a href="{{ route('client.detail', $projects[1]->slug) }}">{{ $projects[1]->title }}</a></h3>
                       </li>
                 </div>
+                @endisset
+
+                @isset($projects[2])
                 <div class="col-md-4 mt-5">
                     <li class="card-home">
-                        <img src='asset/img/mockup2.jpg' alt=''>
-                        <h3><a href="">A Super Wonderful Headline</a></h3>
-                        <p>Lorem ipsum sit dolor amit</p>
+                        <img src='{{ Storage::url($projects[2]->gallery[0]->image) }}' alt=''>
+                        <h3 class="text-center"><a href="{{ route('client.detail', $projects[2]->slug) }}">{{ $projects[2]->title }}</a></h3>
                       </li>
                 </div>
+                @endisset
+
+                @isset($projects[3])
                 <div class="col-md-4 mt-5">
                     <li class="card-home">
-                        <img src='https://images.unsplash.com/photo-1611083360739-bdad6e0eb1fa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
-                        <h3><a href="">What a Fantabulous Title!</a></h3>
-                        <p>Lorem ipsum sit dolor amit</p>
+                        <img src='{{ Storage::url($projects[3]->gallery[0]->image) }}' alt=''>
+                        <h3 class="text-center"><a href="{{ route('client.detail', $projects[3]->slug) }}">{{ $projects[3]->title }}</a></h3>
                       </li>
                 </div>
+                @endisset
+
+                @isset($projects[4])
                 <div class="col-md-4 mt-5">
                     <li class="card-home">
-                        <img src='https://images.unsplash.com/photo-1613230485186-2e7e0fca1253?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwxNDU4OXwwfDF8cmFuZG9tfHx8fHx8fHw&ixlib=rb-1.2.1&q=80&w=400' alt=''>
-                        <h3><a href="">Positively Terrific Title</a></h3>
-                        <p>Lorem ipsum sit dolor amit</p>
+                        <img src='{{ Storage::url($projects[4]->gallery[0]->image) }}' alt=''>
+                        <h3 class="text-center"><a href="{{ route('client.detail', $projects[4]->slug) }}">{{ $projects[4]->title }}</a></h3>
                     </li>
                 </div>
+                @endisset
                 
             </div>
             

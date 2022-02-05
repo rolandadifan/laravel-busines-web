@@ -211,18 +211,18 @@
                             </form>
                            </div>
                            <div class="col-sm-1" style="margin-left: -20px">
-                               <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-filter fa-1x"></i></button>
-                                  <div class="dropdown-menu dropdown-menu-right" >
-                                     <ul class="category_filters" >
-                                      <li >
-                                       <input type="radio" name="radios" id="Sales" value="Sales" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project') }}'" >Terbaru</label>
-                                      </li>
-                                      <li >
-                                       <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project.latest') }}'">Terlama</label>
-                                      </li>
-                                     </ul>
-                                </div>
-                           </div>
+                            <button type="button" class="btn dropdown-toggle dropdown-toggle-split btn-filter" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><i class="fas fa-filter fa-1x"></i></button>
+                               <div class="dropdown-menu dropdown-menu-right" >
+                                  <ul class="category_filters" >
+                                   <li >
+                                    <input type="radio" onclick="javascript:location.href='{{ route('client.project') }}'"  name="radios" id="Sales" value="Sales" ><label class="category-label" >Terbaru</label>
+                                   </li>
+                                   <li >
+                                    <input type="radio" name="radios" id="Support" value="Support" ><label class="category-label" onclick="javascript:location.href='{{ route('client.project.latest') }}'">Terlama</label>
+                                   </li>
+                                  </ul>
+                             </div>
+                        </div>
                     </div>
 
                     
