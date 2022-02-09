@@ -98,6 +98,8 @@ Route::prefix('web/admin')->middleware(['auth'])->group(function(){
     Route::get('/about', [MenuController::class, 'index'])->name('about.index');
     Route::put('/about', [MenuController::class, 'update'])->name('about.update');
     Route::put('/about/update-image', [MenuController::class, 'update_image'])->name('about.update.image');
+    Route::get('/menu/video', [MenuController::class, 'video'])->name('menus.video');
+    Route::put('/menu/video', [MenuController::class, 'video_update'])->name('menus.video.update');
 });
 
 Auth::routes(['register' => false]);

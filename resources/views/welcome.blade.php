@@ -14,6 +14,7 @@
 <div class="section-1">
     <div class="container">
         <h1 class="heading-1 text-center">Project Terbaru Kami</h1>
+        <div class="hline"></div>
         <ul class="card-wrapper">
             <div class="row">
                 @isset($projects[0])
@@ -78,6 +79,7 @@
         <div class="d-flex">
             <div class="d-flex flex-column ">
                 <h1 class="heading-1">Tentang Kami</h1>
+                <div class="hline hline-about"></div> 
                 <p class="para">{!! mb_strimwidth($about->value, 0, 381, "...") ?? '' !!}<a href="{{ url('/tentang-kami') }}"><span>Read more</span></a></p>
             </div>
         </div>
@@ -153,11 +155,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7">
-                <iframe class="vid-cpn" style="margin-top: 20px;z-index: 10; width: 450px; max-width: 100%;"  height="300" src="https://www.youtube.com/embed/dqrsB7A6CFc?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe class="vid-cpn" style="margin-top: 20px;z-index: 10; width: 450px; max-width: 100%;"  height="300" src="https://www.youtube.com/embed/{{ $yt->value ?? 'dqrsB7A6CFc' }}?autoplay" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 <div class="box-back"></div>
             </div>
             <div class="col-md-5">
                 <h1 class="text-white heading-1">Kenali Kami</h1>
+                <div class="hline-knowus"></div> 
                 <p class="para-1">{{ $knowus->value }}</p>
                 {{-- <a href="/portofolio.html">More...</a> --}}
             </div>
@@ -168,6 +171,7 @@
 <div class="section-5">
     <div class="container text-center">
         <h1 class="heading-5 mb-1">Info & Berita</h1>
+        <div class="hline"></div>
         <div class="main-content-news">
             <div class="row">
                 @forelse ($news as $nw)
@@ -178,7 +182,7 @@
                             <div class="text-overlay">
                                 <h2 class="news-title">{{ mb_strimwidth($nw->name, 0, 30, "...") ?? '' }}</h2>
                                 <p>{{ \Carbon\Carbon::parse($nw->created_at)->format('j F, Y') }}</p>
-                                <p class="news-desc">{!! mb_strimwidth($nw->description, 0, 135, "...") ?? '' !!} &nbsp;&nbsp;<a href="{{ route('client.news.detail', $nw->slug) }}" class="read-more">Read More</a></p>
+                                <p class="news-desc">{!! mb_strimwidth($nw->description, 0, 50, "...") ?? '' !!} &nbsp;&nbsp;<a href="{{ route('client.news.detail', $nw->slug) }}" class="read-more">Read More</a></p>
                             </div>
                         </div>
                     </section>

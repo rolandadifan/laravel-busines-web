@@ -6,27 +6,27 @@
                     <img src="/asset/img/final logo transparant.png" alt="">
                 </h3>
                 <div class="social-media">
-                    <p class="mt-3 sc-media-title">Follow US</p>
+                    <p class="mt-3 sc-media-title text-white">Follow US</p>
                     <div class="row img-sc">
                         <d class="d-flex">
                             <div class="ft-social">
                                 <a href="whatsapp://send?abid={{ $wa->value }}" target="_blank" rel="noreferrer noopener">
-                                    <i class="fab fa-whatsapp fa-2x ml-2"></i>
+                                    <i class="fab fa-whatsapp fa-2x ml-2" style="color: #25D366"></i>
                                 </a>
                             </div>
                             <div class="ft-social">
                                 <a href="{{ $fb->value ?? '#' }}" target="_blank" rel="noreferrer noopener">
-                                   <i class="fab fa-facebook fa-2x ml-2"></i>
+                                   <i class="fab fa-linkedin fa-2x ml-2" style="color: #0072b1"></i>
                                 </a>
                             </div>
                             <div class="ft-social">
                                 <a href="{{ $ig->value ?? '#' }}" target="_blank" rel="noreferrer noopener">
-                                    <i class="fab fa-instagram fa-2x ml-2"></i>
+                                    <i class="fab fa-instagram fa-2x ml-2" style="color: #f56040  "></i>
                                 </a>
                             </div>
                             <div class="ft-social">
                                 <a href="{{ $yt->value ?? '#' }}" target="_blank" rel="noreferrer noopener">
-                                    <i class="fab fa-youtube fa-2x ml-2"></i>
+                                    <i class="fab fa-youtube fa-2x ml-2" style="color: #FF0000"></i>
                                 </a>
                             </div>
                         </d>
@@ -42,9 +42,10 @@
                 
             </div>
             <div class="col-md-4 mt-5">
-                <h3 class="ft-cp-name">Jam Operasional</h3>
-                <p class="jm-op">Senin - Jumat : 08.00 - 17.00 WIB</p>
-                <p class="jm-op">Sabtu - Minggu : Libur</p>
+                <h3 class="ft-cp-name">Contact</h3>
+                <p class="jm-op">{{ $address->value }}</p>
+                <p class="jm-op">{{ $phone->value }}</p>
+                <p class="jm-op">{{ $email->value }}</p>
             </div>
         </div>
         <hr>

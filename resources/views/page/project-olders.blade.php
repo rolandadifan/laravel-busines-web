@@ -126,7 +126,7 @@
                                 <input type="hidden" name="id" value="{{ $ctg->id }}">
                                 <li class="list-group-item d-flex justify-content-between align-items-center">
                                   <button type="submit" style="border: none; background:none" class="ctg-all">{{ $ctg->name }}</button>
-                                  <span class="badge bg-primary rounded-pill px-2 py-1">{{ count($ctg->project) }}</span>
+                                  <span class="badge">({{ count($ctg->project) }})</span>
                                 </li>
                             </form>
                             @empty
@@ -136,65 +136,27 @@
                     </div>
                       
                     <div class="display-mobile">
-                        <div class="card">
+                        <form action="{{ url('/project/category/search') }}" method="get">
                             <div class="row">
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Category</label>
+                                        <select class="form-control" name="id" id="exampleFormControlSelect1">
+                                        @forelse ($categories as $ctgs)
+                                          <option value="{{ $ctgs->id }}">{{ $ctgs->name }}</option>
+                                          @empty
+                                          <option>belum ada data</option>
+                                        @endforelse
+                                        </select>
+                                      </div>
                                 </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
+                                <div class="col-md-12">
+                                    <p class="text-center">
+                                        <button type="submit" class="btn btn-search btn-filter">Search Category</button>
+                                    </p>
                                 </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="d-flex">
-                                        <a href="">Mobil</a>
-                                        <p style="font-size: 10px; margin-left: -10px;" class="">(14)</p>
-                                    </div>
-                                </div>
-                                
                             </div>
-                        </div>
+                        </form>
                     </div>
                    
                 </div>

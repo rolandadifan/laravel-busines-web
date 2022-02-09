@@ -84,6 +84,12 @@
                   <p>Contact</p>
                 </a>
               </li>
+              <li class="nav-item">
+                <a href="{{ route('menus.video') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Youtube</p>
+                </a>
+              </li>
             </ul>
           </li>
           <li class="nav-header">Setting</li>

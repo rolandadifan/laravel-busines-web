@@ -22,19 +22,20 @@
         <div class="row">
             <div class="col-md-6">
                 <h5 class="contact-title mb-5">Info</h5>
+                <div class="hline-contact"></div>
                 <div class="d-flex flex-row">
                     <i class="fas fa-map-marked-alt fa-3x m-2"></i>
                     <div class="d-flex flex-column">
-                        <h5 class="mt-2 ml-2">Alamat</h3>
+                        <h5 class="mt-2 ml-3">Alamat</h3>
                         <p class="m-2 ml-2 service-desc">{{ $address->value ?? '' }}</p>
                     </div>
                 </div>
                 <div class="d-flex flex-row mt-3">
-                    <i class="fas fa-question-circle fa-3x m-2"></i>
+                    <i class="fas fa-question-circle fa-3x m-2" style="margin-top: 30px !important"></i>
                     <div class="d-flex flex-column">
-                        <h5 class="mt-2 ml-2">Informasi Kontak</h3>
-                        <p class="m-2 ml-2 service-desc">{{ $email->value }}</p>
-                        <p class="m-2 ml-2 service-desc">{{ $phone->value }}</p>
+                        <h5 class="mt-2 ml-3">Informasi Kontak</h3>
+                        <p class="m-2 ml-3 service-desc">{{ $email->value }}</p>
+                        <p class="m-2 ml-3 service-desc">{{ $phone->value }}</p>
                     </div>
                 </div>
                 <div class="d-flex flex-row mt-3">
@@ -45,22 +46,22 @@
                                 <div class="d-flex">
                                     <div class="ft-social">
                                         <a href="whatsapp://send?abid={{ $wa->value }}" target="_blank" rel="noreferrer noopener">
-                                            <i class="fab fa-whatsapp fa-2x ml-2"></i>
+                                            <i class="fab fa-whatsapp fa-2x ml-2" style="color: #25D366 !imporant"></i>
                                         </a>
                                     </div>
                                     <div class="ft-social">
                                         <a href="{{ $fb->value ?? '#' }}" target="_blank" rel="noreferrer noopener">
-                                           <i class="fab fa-facebook fa-2x ml-2"></i>
+                                           <i class="fab fa-linkedin fa-2x ml-2" style="color: #0072b1 !important"></i>
                                         </a>
                                     </div>
                                     <div class="ft-social">
                                         <a href="{{ $ig->value ?? '#' }}" target="_blank" rel="noreferrer noopener">
-                                            <i class="fab fa-instagram fa-2x ml-2"></i>
+                                            <i class="fab fa-instagram fa-2x ml-2" style="color: #f56040  !important"></i>
                                         </a>
                                     </div>
                                     <div class="ft-social">
                                         <a href="{{ $yt->value ?? '#' }}" target="_blank" rel="noreferrer noopener">
-                                            <i class="fab fa-youtube fa-2x ml-2"></i>
+                                            <i class="fab fa-youtube fa-2x ml-2" style="color: #FF0000 !important"></i>
                                         </a>
                                     </div>
                                 </div>
@@ -70,6 +71,7 @@
             </div>
             <div class="col-md-6">
                 <h5 class="contact-title mb-5">Lokasi</h5>
+                <div class="hline-contact"></div>
                 <iframe class="gmaps-lokasi" src="{{ $location->value }}" width="400" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <!-- <div class="col-md-12 mb-5">
@@ -81,6 +83,7 @@
 
 <div class="form-contact-us">
     <h5 class="contact-title mb-5">Atau Hubungi Kami</h5>
+    <div class="hline-contact"></div>
     <div class="form-contact container">
         <form> 
             <div class="form-group">
@@ -93,7 +96,7 @@
             </div>
             <div class="form-group">
               <label for="perusaan">Nama Perusaan <span class="reuired">*</span></label>
-              <input type="perusaan" class="form-control" id="perusaan" required>
+              <input type="text" class="form-control" id="perusaan" required>
             </div>
             <div class="row">
                 <div class="col-md-6">
@@ -115,6 +118,10 @@
                       </div>
                 </div>
             </div>
+            <div class="form-group">
+                <label for="perusaan">File</label>
+                <input type="file" class="form-control" id="perusaan">
+              </div>
             <div class="form-group">
                 <label for="message">Pesan <span class="reuired">*</span></label>
                 <textarea name="message" class="form-control" id="" cols="10" rows="10" required></textarea>

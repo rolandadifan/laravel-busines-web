@@ -29,11 +29,19 @@ class AppServiceProvider extends ServiceProvider
             $yt = Contact::where('key', 'yt')->first();
             $wa = Contact::where('key', 'wa')->first();
             $ig = Contact::where('key', 'ig')->first();
+            $email = Contact::where('key', 'email')->first();
+            $phone = Contact::where('key', 'phone')->first();
+            $fax = Contact::where('key', 'fax')->first();
+            $address = Contact::where('key', 'address')->first();
             $menu->with([
                 'fb' => $fb,
                 'yt' => $yt,
                 'wa' => $wa,
                 'ig' => $ig,
+                'email' => $email,
+                'phone' => $phone,
+                'fax' => $fax,
+                'address' => $address,
             ]);
         });
     }

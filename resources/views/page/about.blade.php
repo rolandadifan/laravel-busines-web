@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="d-flex">
                                     <img src="{{ $pic->value === 'no pic' ? '/asset/img/pic-porto.jpg' : Storage::url($pic->value) }}" class="pic-about" alt="pic-porto">
-                                    <p class="para-about">{{ $about->value }}</p>
+                                    <p class="para-about mt-3">{{ $about->value }}</p>
                                 </div>
                             </div>
                         </div>

@@ -25,6 +25,7 @@ class HomeController extends Controller
 
         $about = Menu::where('key', 'about')->first();
         $knowus = Menu::where('key', 'knowus')->first();
+        $yt = Menu::where('key', 'youtube')->first();
         $news = News::orderBy('created_at', 'DESC')->limit(4)->get();
         $projects = Project::with(['gallery'])->orderBy('created_at', 'DESC')->limit(5)->get();
 
@@ -33,6 +34,7 @@ class HomeController extends Controller
             'about' => $about,
             'knowus' => $knowus,
             'news' => $news,
+            'yt' => $yt,
             'projects' => $projects
         ]);
     }

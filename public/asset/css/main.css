@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato|Pacifico|Righteous|Roboto+Condensed|Ubuntu');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital@0;1&display=swap');
 
 /* color gradient: linear-gradient(135deg, rgba(43,85,146,1) 20%, rgba(100,187,227,1) 100%);
 color 1 : #2b5592
@@ -11,7 +12,7 @@ body{
     /* background-color: whitesmoke; */
     background-color: #f9fcff;
     background-image: linear-gradient(147deg, #f9fcff 0%, #dee4ea 74%);
-    font-family: 'Roboto Condensed';
+    font-family: 'Poppins';
 }
 
 /* loading */
@@ -24,6 +25,16 @@ body{
     z-index: 9999;
     background: center no-repeat #fff;
 }
+
+.hline{
+    width: 150px;
+    height: 2px;
+    background-color: black;
+    margin: 16px auto 0 auto;
+    margin-bottom: 5%;
+    margin-top: 20px;
+}
+
  
 /*-- css spin --*/
 @-webkit-keyframes spin {
@@ -57,6 +68,7 @@ body{
     position: fixed;
     top: 56%;
     left: 45.6%;
+    margin-left: -30px;
     color: #34495e;
 }
    
@@ -113,7 +125,7 @@ body{
 .nav-link{
     font-size: 16px;
     margin: 15px;
-    color: black;
+    color: black !important;
     font-weight: bold;
     font-family: 'Righthouse';
 }
@@ -122,17 +134,24 @@ body{
     width: 100px;
 }
 
+.navbar img{
+    width: 100px;
+    margin-top: 10px;
+}
+
+
 
 
 .nav-link:hover{
-    color: #2b5592 !important;
+    color: rgb(53, 16, 218) !important;
 }
 
 .active .nav-link{
-    color:  #2b5592 !important;
+    color: #000080!important;
 }
 
 .navbar-fixed-top.scrolled {
+    color: black !important;
     background-color: #ffffff;
     background-image: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
   transition: background-color 200ms linear;
@@ -181,7 +200,7 @@ body{
     }
 
     .site-content{
-        background-image: url('/asset/img/mockup.jpg');
+        background-image: url('/asset/img/mockup2.jpg');
         background-attachment: fixed;
         height: 40vh !important;
         background-size: cover;
@@ -195,7 +214,7 @@ body{
 /* main */
 
 .site-content{
-    background-image: url('/asset/img/mockup.jpg');
+    background-image: url('/asset/img/mockup2.jpg');
     background-attachment: fixed;
     height: 100vh;
     background-size: cover;
@@ -256,7 +275,7 @@ body{
 
 .section-1 .heading-1{
     margin-top: 8%;
-    margin-bottom: 5%;
+    /* margin-bottom: 5%; */
     z-index: 10;
     font-family: 'Righteous';
 }
@@ -423,15 +442,19 @@ body{
 
 .section-2 .heading-1{
     margin-top: 50px;
-    margin-bottom: 4%;
+    /* margin-bottom: 4%; */
     font-family: 'Righteous';
     /* width: 80%; */
     color: whitesmoke;
 }
 
+.hline-about{
+    background-color: white !important;
+}
+
 .section-2 .para{
     width: 80%; 
-    margin-left: 200px;
+    margin-left: 150px;
     font-family: 'Ubuntu';
     font-size: 24px;
     color: whitesmoke;
@@ -478,11 +501,22 @@ body{
     background: linear-gradient(110deg, rgba(249,252,255,0) 50%, rgba(43,85,146,1) 47%, rgba(100,187,227,1) 78%);
 }
 
+
+.hline-knowus{
+    width: 150px;
+    height: 2px;
+    background-color: white;
+    /* margin: 16px auto 0 auto; */
+    margin-bottom: 5%;
+    margin-top: 20px;
+}
+
 .section-4 .heading-1{
     margin-top: 20px;
     z-index: 10;
     font-family: 'Righteous';
 }
+
 
 .section-4 .box-back{
     border: 8px solid none;
@@ -519,6 +553,8 @@ body{
  .portofolio-img{
     border-radius: 10px 50px 10px 50px;
  }
+
+
 
 @media only screen and (max-width: 600px){
     .portofolio-img{
@@ -662,6 +698,10 @@ body{
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6);
     transition: all 350ms linear;
   }
+
+  /* .news-desc{
+      margin-bottom: 20px;
+  } */
 
 .news-to-lainya{
     color: #D0D3C5;
@@ -981,6 +1021,15 @@ footer i{
     margin-top: 20px;
 }
 
+.hline-contact{
+    width: 150px;
+    height: 2px;
+    background-color: black;
+    margin: 16px auto 0 auto;
+    margin-bottom: 5%;
+    margin-top: -20px;
+}
+
 .content-contact .reuired{
     color: red;
 }
@@ -1216,6 +1265,10 @@ footer i{
     }
     .display-mobile a{
         padding: 10px;
+    }
+    .btn-filter{
+        margin-left: 20px !important;
+        margin-top: 10px;
     }
    
 }

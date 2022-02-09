@@ -24,6 +24,29 @@ class MenuController extends Controller
         ]);
     }
 
+    public function video()
+    {
+        $yt = Menu::where('key', 'youtube')->first();
+        return view('admin.page.menu.video', [
+            'yt' => $yt
+        ]);
+    }
+
+    public function video_update(Request $request)
+    {
+        try {
+            //code...
+            $yt['value'] = $request->yt;
+            $yt_update = Menu::where('key', 'youtube')->first();
+            $yt_update->update($yt);
+            return redirect()->back()->with('status', 'Successfully update video');  
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error',  $th->getMessage());
+        }
+
+    }
+
     public function update(Request $request)
     {
         try {
