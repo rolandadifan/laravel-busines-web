@@ -7,6 +7,7 @@
 <script src="{{ asset('asset/javascript/preview-image.js') }}"></script>
 <script src="{{ asset('asset/javascript/preview-image.js') }}"></script>
 <script src="{{ asset('asset/javascript/text-animated.js') }}"></script>
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@latest/dist/js/splide.min.js"></script>
 <script>
     $(function () {
         $(document).scroll(function () {
@@ -38,4 +39,35 @@
     	  }
       })
     })
+    document.addEventListener( 'DOMContentLoaded', function () {
+        var main = new Splide( '#main-slider', {
+            type      : 'fade',
+            rewind    : true,
+            pagination: false,
+            arrows    : true,
+        } );
+
+
+        var thumbnails = new Splide( '#thumbnail-slider', {
+            fixedWidth  : 100,
+            fixedHeight : 60,
+            gap         : 10,
+            rewind      : true,
+            pagination  : false,
+            cover       : true,
+            isNavigation: true,
+            arrows    : false,
+            breakpoints : {
+            600: {
+                fixedWidth : 60,
+                fixedHeight: 44,
+            },
+            },
+        } );
+
+
+        main.sync( thumbnails );
+        main.mount();
+        thumbnails.mount();
+        } );
 </script>

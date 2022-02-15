@@ -20,7 +20,25 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <a href="{{ route('project.index') }}" class="btn btn-secondary btn-sm mb-5"><i class="fas fa-arrow-left"></i> Back</a>
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <a href="{{ route('project.index') }}" class="btn btn-secondary btn-sm mb-5"><i class="fas fa-arrow-left"></i> Back</a>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="float-sm-right">
+                <form action="{{ route('project.destroy', $project->id) }}"  method="POST">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-danger btn-sm">
+                      <i class="fas fa-fw fa-trash"></i>
+                  </button>
+              </form>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+        
         @include('admin.include.flashmessage')
         <form action="{{ route('project.update', $project->id) }}" method="POST" enctype='multipart/form-data'>
             @method('put')

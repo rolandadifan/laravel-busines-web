@@ -175,7 +175,7 @@
         <div class="main-content-news">
             <div class="row">
                 @forelse ($news as $nw)
-                <div class="@if (count($news) === 1) col-md-12 @elseif(count($news) === 2) col-md-6 elseif() @elseif(count($news) === 3) col-md-4 @elseif(count($news) === 4) col-md-3  @endIf col-6">
+                <div class="@if (count($news) === 1) col-md-12 @elseif(count($news) === 2) col-md-6  @elseif(count($news) === 3) col-md-4 @elseif(count($news) === 4) col-md-3  @endIf col-6">
                     <section class="bg">
                         <div class="blog-card">
                             <img class="blog-img" src="{{ Storage::url($nw->image) }}" alt="image" />

@@ -191,19 +191,16 @@
                     <div class="row">
                         @forelse ($projects as $project)
                         <div class="col-md-4">
-                            <div class="card cutomesis card-product-list mt-4" style="width:250px;">
-                                <img src="{{ Storage::url($project->gallery[0]->image) }}" alt="image1" height="200" class="zoom-image" data-zoom-src="{{ Storage::url($project->gallery[0]->image) }}">
-                                <div class="card-body">
-                                    <a href="{{ route('client.detail', $project->slug) }}" class="link-to-detail">
-                                        <h5 class="card-title product-title text-center">{{ $project->title }}</h4>
-                                    </a>
-                                </div>
-                            </div>
+                            <li class="card-home mt-4">
+                                <img src='{{ Storage::url($project->gallery[0]->image) }}' alt=''>
+                                <p style="font-size: 20px; margin-top:10px"><a href="{{ route('client.detail', $project->slug) }}">{!! mb_strimwidth($project->title, 0, 15, "...") !!}</a></p>
+                                <p style="font-size: 10px; margin-top:-5px">{{ \Carbon\Carbon::parse($project->created_at)->format('j F, Y') }}</p>
+                            </li>
                         </div>
                         @empty
                             <h3 class="text-center">Data belum ada</h3>
                         @endforelse
-                </div>
+                    </div>
                 <div class="mt-5">
                     {{ $projects->links('vendor.pagination.bootstrap-4') }}
                 </div>

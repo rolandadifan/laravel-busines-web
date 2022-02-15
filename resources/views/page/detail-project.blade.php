@@ -23,129 +23,35 @@
             <div class="col-md-12">
                 <section>
                     <div class="container">
-                        <div class="carousel">
-                            @isset($projects->gallery[0])
-                                <input type="radio" name="slides" checked="checked" id="slide-1">
-                            @endisset
-
-                            @isset($projects->gallery[1])
-                                <input type="radio" name="slides" id="slide-2">
-                            @endisset
-
-                            @isset($projects->gallery[2])
-                                <input type="radio" name="slides" id="slide-3">
-                            @endisset
-
-                            @isset($projects->gallery[3])
-                                <input type="radio" name="slides" id="slide-4"> 
-                            @endisset
-
-                            @isset($projects->gallery[4])
-                                <input type="radio" name="slides" id="slide-5">
-                            @endisset
-
-                            @isset($projects->gallery[5])
-                                <input type="radio" name="slides" id="slide-6">
-                            @endisset
-                            
-                            <ul class="carousel__slides">
-                                @isset($projects->gallery[0])
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="{{ Storage::url($projects->gallery[0]->image) }}" alt="">
-                                        </div>
-                                    </figure>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[1])
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="{{ Storage::url($projects->gallery[1]->image) }}" alt="">
-                                        </div>
-                                    </figure>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[2])
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="{{ Storage::url($projects->gallery[2]->image) }}" alt="">
-                                        </div>
-                                    </figure>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[3])
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="{{ Storage::url($projects->gallery[3]->image) }}" alt="">
-                                        </div>
-                                    </figure>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[4])
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="{{ Storage::url($projects->gallery[4]->image) }}" alt="">
-                                        </div>
-                                    </figure>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[5])
-                                <li class="carousel__slide">
-                                    <figure>
-                                        <div>
-                                            <img src="{{ Storage::url($projects->gallery[5]->image) }}" alt="">
-                                        </div>
-                                    </figure>
-                                </li>
-                                @endisset
-                            </ul>    
-                            <ul class="carousel__thumbnails">
-                                @isset($projects->gallery[0])
-                                <li>
-                                    <label for="slide-1"><img src="{{ Storage::url($projects->gallery[0]->image) }}" alt=""></label>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[1])
-                                <li>
-                                    <label for="slide-2"><img src="{{ Storage::url($projects->gallery[1]->image) }}" alt=""></label>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[2])
-                                <li>
-                                    <label for="slide-3"><img src="{{ Storage::url($projects->gallery[2]->image) }}" alt=""></label>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[3])
-                                <li>
-                                    <label for="slide-4"><img src="{{ Storage::url($projects->gallery[3]->image) }}" alt=""></label>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[4])
-                                <li>
-                                    <label for="slide-5"><img src="{{ Storage::url($projects->gallery[4]->image) }}" alt=""></label>
-                                </li>
-                                @endisset
-
-                                @isset($projects->gallery[5])
-                                <li>
-                                    <label for="slide-6"><img src="{{ Storage::url($projects->gallery[5]->image) }}" alt=""></label>
-                                </li>
-                                @endisset
-                            </ul>
+                        <div id="main-slider" class="splide">
+                            <div class="splide__track">
+                                    <ul class="splide__list">
+                                        @forelse ($projects->gallery as $image)
+                                        <li class="splide__slide">
+                                            <img src="{{ Storage::url($image->image) }}" style="height:500px !important" class="project-img-detail">
+                                        </li>
+                                        @empty
+                                        <li class="splide__slide">
+                                            <img src="{{ asset('asset/img/mockup21.jpg') }}" class="project-img-detail">
+                                        </li>
+                                        @endforelse
+                                    </ul>
+                            </div>
+                        </div>
+                       <div id="thumbnail-slider" class="splide">
+                            <div class="splide__track">
+                                    <ul class="splide__list">
+                                        @forelse ($projects->gallery as $image)
+                                        <li class="splide__slide">
+                                            <img src="{{ Storage::url($image->image) }}" class="project-img-detail">
+                                        </li>
+                                        @empty
+                                        <li class="splide__slide">
+                                            <img src="{{ asset('asset/img/mockup21.jpg') }}" class="project-img-detail">
+                                        </li>
+                                        @endforelse
+                                    </ul>
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -191,8 +97,8 @@
                         <div class="card cutomesis-product-detail" style="width:250px;">
                             <img src="{{ Storage::url($ran->gallery[0]->image) }}" alt="image1"  width="50" height="200"  data-zoom-src="{{ Storage::url($ran->gallery[0]->image) }}">
                             <div class="card-body">
-                                <a href="" class="link-to-detail">
-                                    <p class="card-title product-title-detail">{{ $ran->title }}</p>
+                                <a href="{{ route('client.detail', $ran->slug) }}" class="link-to-detail">
+                                    <p class="card-title product-title-detail">{!! mb_strimwidth($ran->title, 0, 15, "...") !!}</p>
                                 </a>
                             </div>
                         </div>

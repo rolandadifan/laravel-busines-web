@@ -80,10 +80,6 @@
             var filesAmount = input.files.length;
 
             for (i = 0; i < filesAmount; i++) {
-                if(filesAmount > 6){
-                  alert('image max 6')
-                  return
-                }
                 var reader = new FileReader();
 
                 reader.onload = function(event) {

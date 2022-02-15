@@ -193,25 +193,27 @@ class ProjectController extends Controller
             $project = Project::findOrFail($id)->delete();
             return redirect()->back()->with('status', 'Succesfully delete project');
         } catch (\Throwable $th) {
-            return redirect()->back()->with('error', $th->getMessage());
+            return redirect()->back()->with('error', 'harus menghapus image terlebih dahulu');
         }
     }
 
     public function addImage(Request $request)
     {
-        $product = $request->project_id;
-        $check = ProductGallery::where('project_id', $product)->count();
-        if($check >= 6){
-            return redirect()->back()->with('error', 'Image maksimum upload 6');
+        try {
+            //code...
+            $product = $request->project_id;
+            foreach ($request->file('image') as $images) {
+                $path = $images->store('project', 'public');
+                ProductGallery::create([
+                    'project_id' => $product,
+                    'image' => $path
+                ]);
+            }
+            return redirect()->back()->with('status', 'Succesfully add image');
+        } catch (\Throwable $th) {
+            //throw $th;
+            return redirect()->back()->with('error', $th->getMessage());
         }
-        foreach ($request->file('image') as $images) {
-            $path = $images->store('project', 'public');
-            ProductGallery::create([
-                'project_id' => $product,
-                'image' => $path
-            ]);
-        }
-        return redirect()->back()->with('status', 'Succesfully add image');
 
     }
 

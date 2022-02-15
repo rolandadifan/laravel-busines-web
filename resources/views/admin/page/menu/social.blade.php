@@ -25,7 +25,7 @@
             @method('put')
             @csrf
             <div class="form-group">
-                <label for="name">Facebook</label>
+                <label for="name">Linkedin</label>
                 <input type="text" class="form-control" id="name" aria-describedby="name" value="{{ $fb->value }}" name="fb" required>
             </div>
             <div class="form-group">
