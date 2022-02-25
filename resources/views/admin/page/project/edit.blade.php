@@ -101,8 +101,8 @@
             <div class="row">
               <div class="col-md-8">
                 <div class="form-group">
-                  <input type="file" name="image[]" id="gallery-photo-adds" class="form-control" accept="image/*" multiple required>
-                  <small id="emailHelp" class="form-text text-muted">can input maks 6 image</small>
+                  <input type="file" name="image[]" id="gallery-photo-adds" class="form-control" accept="image/*" required>
+                  <small id="emailHelp" class="form-text text-muted">bisa input lebih dari 1 image</small>
                   <div class="gallerys"></div>
                 </div>
               </div>

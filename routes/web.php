@@ -14,6 +14,7 @@ use App\Http\Controllers\ProjectsController;
 use App\Http\Controllers\NewController;
 use App\Http\Controllers\ContactsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,6 +46,9 @@ Route::get('/berita/{slug}', [NewController::class, 'detail'])->name('client.new
 
 //contact
 Route::get('/hubungi-kami', [ContactsController::class, 'contact'])->name('client.contact');
+
+//send mail
+Route::post('/send-mail', [MailController::class, 'send_mail'])->name('send.mail');
 
 
 

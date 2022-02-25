@@ -24,7 +24,13 @@ class EmployeeController extends Controller
             $data['role'] = $request->role;
             $data['phone'] = $request->phone;
             $data['email'] = $request->email;
-            $data['avatar'] = $request->file('avatar')->store('employee', 'public');
+            // $data['avatar'] = $request->file('avatar')->store('employee', 'public');
+            
+
+            $fileName = time().'.'.$request->file('avatar')->extension();  
+            $request->file('avatar')->move(public_path('upload/employe'), $fileName);
+
+            $data['avatar'] = 'upload/employe/' . $fileName;
     
             Employee::create($data);
 
@@ -52,8 +58,11 @@ class EmployeeController extends Controller
             $phone = $request->phone;
             $email = $request->email;
             if($request->file('avatar')){
-                $avatar = $request->file('avatar')->store('employee', 'public');
-                $file_path = Storage::url($employee->avatar);
+                // $avatar = $request->file('avatar')->store('employee', 'public');
+                $fileName = time().'.'.$request->file('avatar')->extension();  
+                $request->file('avatar')->move(public_path('upload/employe'), $fileName);
+
+                $file_path = '/' .$employee->avatar;
                 $path = str_replace('\\', '/', public_path());
                 if (file_exists($path . $file_path)) {
                     unlink($path . $file_path);
@@ -63,7 +72,7 @@ class EmployeeController extends Controller
                     'role' => $role,
                     'phone' => $phone,
                     'email' => $email,
-                    'avatar' => $avatar
+                    'avatar' => 'upload/employe/' . $fileName
                 ]);
                 $employee->save();
                 return redirect()->back()->with('status', 'Successfully update employe');
@@ -86,7 +95,8 @@ class EmployeeController extends Controller
     public function destroy($id)
     {
         $employee = Employee::findOrFail($id);
-        $file_path = Storage::url($employee->avatar);
+        // $file_path = Storage::url($employee->avatar);
+        $file_path = '/' .$employee->avatar;
         $path = str_replace('\\', '/', public_path());
         if (file_exists($path . $file_path)) {
             unlink($path . $file_path);

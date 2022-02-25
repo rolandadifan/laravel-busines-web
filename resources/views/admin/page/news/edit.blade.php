@@ -25,7 +25,7 @@
         <form action="{{ route('news.update', $news->id) }}" method="POST" enctype='multipart/form-data'>
             @method('put')
             @csrf
-            <img src="{{ Storage::url($news->image) }}" widht="400" height="200" alt="">
+            <img src="http://127.0.0.1:8000/{{ $news->image }}" widht="400" height="200" alt="">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="text" class="form-control" id="name" aria-describedby="name" value="{{$news->name}}"  name="name" required>

@@ -85,31 +85,32 @@
     <h5 class="contact-title mb-5">Atau Hubungi Kami</h5>
     <div class="hline-contact"></div>
     <div class="form-contact container">
-        <form> 
+        <form action="{{ route('send.mail') }}" method="POST" enctype="multipart/form-data">
+            @csrf 
             <div class="form-group">
               <label for="exampleInputEmail1">Nama <span class="reuired">*</span></label>
-              <input type="nama" class="form-control" id="exampleInputnama1" aria-describedby="namaHelp" required>
+              <input type="nama" name="name" class="form-control" id="exampleInputnama1" aria-describedby="namaHelp" required>
             </div>
             <div class="form-group">
               <label for="email">Email <span class="reuired">*</span></label>
-              <input type="email" class="form-control" id="email" required>
+              <input type="email" name="email" class="form-control" id="email" required>
             </div>
             <div class="form-group">
               <label for="perusaan">Nama Perusaan <span class="reuired">*</span></label>
-              <input type="text" class="form-control" id="perusaan" required>
+              <input type="text" name="company" class="form-control" id="perusaan" required>
             </div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="no-hp">Ho HP <span class="reuired">*</span></label>
-                        <input type="number" class="form-control" id="ho-hp" aria-describedby="namaHelp" required>
+                        <input type="number" name="phone" class="form-control" id="ho-hp" aria-describedby="namaHelp" required>
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Negara <span class="reuired">*</span></label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                          <option>Indonesia</option>
+                        <select class="form-control" name="country" id="exampleFormControlSelect1">
+                          <option value="test">Indonesia</option>
                           <option>Amerika</option>
                           <option>Japan</option>
                           <option>Chinese</option>
@@ -120,11 +121,11 @@
             </div>
             <div class="form-group">
                 <label for="perusaan">File</label>
-                <input type="file" class="form-control" id="perusaan">
+                <input type="file" name="file" class="form-control" id="perusaan">
               </div>
             <div class="form-group">
                 <label for="message">Pesan <span class="reuired">*</span></label>
-                <textarea name="message" class="form-control" id="" cols="10" rows="10" required></textarea>
+                <textarea  name="message" class="form-control" id="" cols="10" rows="10" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-contact">Submit</button>
           </form>

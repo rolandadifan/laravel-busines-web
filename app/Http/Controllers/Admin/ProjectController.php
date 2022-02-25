@@ -41,8 +41,14 @@ class ProjectController extends Controller
                 $slug = Str::slug($title);
                 $category_id = $request->category_id;
                 $description = $request->description;
-                $video = $request->file('video_link')->store('video', 'public');
-                $image = $request->file('thumbnail')->store('thumbnail', 'public');
+                // $video = $request->file('video_link')->store('video', 'public');
+                // $image = $request->file('thumbnail')->store('thumbnail', 'public');
+
+                $fileName1 = time().'.'.$request->file('video_link')->extension();  
+                $request->file('video_link')->move(public_path('upload/video'), $fileName1);
+
+                $fileName2 = time().'.'.$request->file('thumbnail')->extension();  
+                $request->file('thumbnail')->move(public_path('upload/thumbnail'), $fileName2);
                 
         
                 $data_projects = Project::create([
@@ -50,16 +56,17 @@ class ProjectController extends Controller
                     'slug' => $slug,
                     'category_id' => $category_id,
                     'description' => $description,
-                    'video_link' => $video,
-                    'thumbnail' => $image
+                    'video_link' => 'upload/video/' .$fileName1,
+                    'thumbnail' => 'upload/thumbnail/' .$fileName2,
                 ]);
 
                 
                 foreach ($request->file('image') as $images) {
-                    $path = $images->store('project', 'public');
+                    $fileName3 =  time() . rand(10,100) . '.'.$images->extension();  
+                    $images->move(public_path('upload/project'), $fileName3);
                     ProductGallery::create([
                         'project_id' => $data_projects->id,
-                        'image' => $path
+                        'image' => 'upload/project/' . $fileName3
                     ]);
                 }
                 
@@ -84,10 +91,11 @@ class ProjectController extends Controller
 
                 
                 foreach ($request->file('image') as $images) {
-                    $path = $images->store('project', 'public');
+                    $fileName =  time() . rand(10,100) . '.'.$images->extension();  
+                    $images->move(public_path('upload/project'), $fileName);
                     ProductGallery::create([
                         'project_id' => $projects->id,
-                        'image' => $path
+                        'image' => 'upload/project/' . $fileName
                     ]);
                 }
                 
@@ -119,15 +127,23 @@ class ProjectController extends Controller
                 $slug = Str::slug($title);
                 $category_id = $request->category_id;
                 $description = $request->description;    
-                $video = $request->file('video_link')->store('video', 'public');
-                $image = $request->file('thumbnail')->store('thumbnail', 'public');
+                // $video = $request->file('video_link')->store('video', 'public');
+                // $image = $request->file('thumbnail')->store('thumbnail', 'public');
 
-                $file_path = Storage::url($project->video_link);
+                $fileName1 = time().'.'.$request->file('video_link')->extension();  
+                $request->file('video_link')->move(public_path('upload/video'), $fileName1);
+
+                $fileName2 = time().'.'.$request->file('thumbnail')->extension();  
+                $request->file('thumbnail')->move(public_path('upload/thumbnail'), $fileName2);
+
+                // $file_path = Storage::url($project->video_link);
+                $file_path = '/' . $project->video_link;
                 $path = str_replace('\\', '/', public_path());
                 if (file_exists($path . $file_path)) {
                     unlink($path . $file_path);
                 }
-                $file_path2 = Storage::url($project->thumbnail);
+                // $file_path2 = Storage::url($project->thumbnail);
+                $file_path2 = '/' . $project->thumbnail;
                 $path2 = str_replace('\\', '/', public_path());
                 if (file_exists($path2 . $file_path2)) {
                     unlink($path2 . $file_path2);
@@ -137,8 +153,8 @@ class ProjectController extends Controller
                     'slug' => $slug,
                     'category_id' => $category_id,
                     'description' => $description,
-                    'video_link' => $video,
-                    'thumbnail' => $image
+                    'video_link' => 'upload/video/' .$fileName1,
+                    'thumbnail' => 'upload/thumbnail/' .$fileName2,
                 ]);
                 $project->save();
                 return redirect()->back()->with('status', 'Succesfully update project');
@@ -147,12 +163,13 @@ class ProjectController extends Controller
                 $slug = Str::slug($title);
                 $category_id = $request->category_id;
                 $description = $request->description;  
-                $image = $request->file('thumbnail')->store('thumbnail', 'public');
-                if($project->video_link === 'NULL'){
-                    return redirect()->back()->with('error', 'Must add videosss');
-                }
+                // $image = $request->file('thumbnail')->store('thumbnail', 'public');
+                $fileName2 = time().'.'.$request->file('thumbnail')->extension();  
+                $request->file('thumbnail')->move(public_path('upload/thumbnail'), $fileName2);
 
-                $file_path2 = Storage::url($project->thumbnail);
+
+                // $file_path2 = Storage::url($project->thumbnail);
+                $file_path2 = '/' . $project->thumbnail;
                 $path2 = str_replace('\\', '/', public_path());
                 if (file_exists($path2 . $file_path2)) {
                     unlink($path2 . $file_path2);
@@ -162,7 +179,7 @@ class ProjectController extends Controller
                     'slug' => $slug,
                     'category_id' => $category_id,
                     'description' => $description,
-                    'thumbnail' => $image
+                    'thumbnail' => 'upload/thumbnail/' .$fileName2,
                 ]);
                 $project->save();
                 return redirect()->back()->with('status', 'Succesfully update project');
@@ -190,8 +207,19 @@ class ProjectController extends Controller
     public function destroy($id)
     {
         try {
-            $project = Project::findOrFail($id)->delete();
-            return redirect()->back()->with('status', 'Succesfully delete project');
+            $project = Project::findOrFail($id);
+             $file_path = '/' . $project->video_link;
+             $path = str_replace('\\', '/', public_path());
+             if (file_exists($path . $file_path)) {
+                 unlink($path . $file_path);
+             }
+             $file_path2 = '/' . $project->thumbnail;
+             $path2 = str_replace('\\', '/', public_path());
+             if (file_exists($path2 . $file_path2)) {
+                 unlink($path2 . $file_path2);
+             }
+             $project->delete();
+            return redirect()->route('project.index')->with('status', 'Succesfully delete project');
         } catch (\Throwable $th) {
             return redirect()->back()->with('error', 'harus menghapus image terlebih dahulu');
         }
@@ -203,10 +231,12 @@ class ProjectController extends Controller
             //code...
             $product = $request->project_id;
             foreach ($request->file('image') as $images) {
-                $path = $images->store('project', 'public');
+                // $path = $images->store('project', 'public');
+                $fileName =  time() . rand(10,100) . '.'.$images->extension();  
+                $images->move(public_path('upload/project'), $fileName);
                 ProductGallery::create([
                     'project_id' => $product,
-                    'image' => $path
+                    'image' => 'upload/project/' . $fileName
                 ]);
             }
             return redirect()->back()->with('status', 'Succesfully add image');
@@ -221,7 +251,8 @@ class ProjectController extends Controller
     {
         try {
             $gallery = ProductGallery::findOrFail($id);
-            $file_path2 = Storage::url($gallery->image);
+            // $file_path2 = Storage::url($gallery->image);
+            $file_path2 = '/' . $gallery->image;
             $path2 = str_replace('\\', '/', public_path());
                 if (file_exists($path2 . $file_path2)) {
                     unlink($path2 . $file_path2);

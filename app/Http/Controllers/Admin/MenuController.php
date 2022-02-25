@@ -80,21 +80,25 @@ class MenuController extends Controller
             $pic = $request->pic_about;
             $image = Menu::where('key', 'pic_about')->first();
             if($image->value === 'no pic'){
-                $image_insert = $request->file('pic_about')->store('abouts', 'public');
+                // $image_insert = $request->file('pic_about')->store('abouts', 'public');
+                $fileName =  time().'.'.$request->file('pic_about')->extension();  
+                $request->file('pic_about')->move(public_path('upload/about'), $fileName);
                 $image->update([
-                    'value' => $image_insert
+                    'value' => 'upload/about/' . $fileName
                 ]);
                 $image->save();
                 return redirect()->back()->with('status', 'Successfully update menu');   
             }else{
-                $file_path = Storage::url($image->value);
+                $file_path = $file_path = '/' . $image->value;
                 $path = str_replace('\\', '/', public_path());
                 if (file_exists($path . $file_path)) {
                     unlink($path . $file_path);
                 }
-                $image_insert = $request->file('pic_about')->store('abouts', 'public');
+                // $image_insert = $request->file('pic_about')->store('abouts', 'public');
+                $fileName =  time().'.'.$request->file('pic_about')->extension();  
+                $request->file('pic_about')->move(public_path('upload/about'), $fileName);
                 $image->update([
-                    'value' => $image_insert
+                    'value' => 'upload/about/' . $fileName
                 ]);
                 $image->save();
                 return redirect()->back()->with('status', 'Successfully update menu');  

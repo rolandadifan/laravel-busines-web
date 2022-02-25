@@ -27,14 +27,16 @@ class NewsController extends Controller
     {
         $name = $request->name;
         $slug = Str::slug($name);
-        $file = $request->file('image')->store('news', 'public');
+        // $file = $request->file('image')->store('news', 'public');
+        $fileName = time().'.'.$request->file('image')->extension();  
+        $request->file('image')->move(public_path('upload/news'), $fileName);
         $description = $request->description;
 
         News::create([
             'name' => $name,
             'slug' => $slug,
             'description' => $description,
-            'image' => $file
+            'image' => 'upload/news/' .$fileName
         ]);
 
         return redirect()->route('news.index')->with('status', 'Succesfully create news');
@@ -65,20 +67,21 @@ class NewsController extends Controller
             ]);
             return redirect()->back()->with('status', 'Succesfully update news');
         }else if($request->file('image')){
-            $file_path = Storage::url($news->image);
+            $file_path = '/' . $news->image;
             $path = str_replace('\\', '/', public_path());
             if (file_exists($path . $file_path)) {
                 unlink($path . $file_path);
             }
             $name = $request->name;
             $slug = Str::slug($name);
-            $file = $request->file('image')->store('news', 'public');
+            $fileName = time().'.'.$request->file('image')->extension();  
+            $request->file('image')->move(public_path('upload/news'), $fileName);
             $description = $request->description;
             $news->update([
                 'name' => $name,
                 'slug' => $slug,
                 'description' => $description,
-                'image' => $file
+                'image' => 'upload/news/' .$fileName
             ]);
 
             return redirect()->back()->with('status', 'Succesfully update news');
@@ -89,7 +92,7 @@ class NewsController extends Controller
     public function destroy($id)
     {
         $news = News::findOrFail($id);
-        $file_path = Storage::url($news->image);
+        $file_path = '/' . $news->image;
         $path = str_replace('\\', '/', public_path());
         if (file_exists($path . $file_path)) {
             unlink($path . $file_path);

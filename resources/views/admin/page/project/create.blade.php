@@ -54,7 +54,7 @@
             <div class="form-group">
                 <label for="name">Image</label>
                 <input type="file" name="image[]" id="gallery-photo-add" class="form-control" accept="image/*" multiple required>
-                <small id="emailHelp" class="form-text text-muted">can input maks 6 image</small>
+                <small id="emailHelp" class="form-text text-muted">bisa input lebih dari 1 image</small>
                 <div class="gallery"></div>
             </div>
             <button type="submit" class="btn btn-primary mb-5">Create</button>
